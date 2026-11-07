@@ -43,8 +43,17 @@ void app_main() {
 
     tsgl_sound_enableGlobalTimer(SOUND_GLOBAL_TIMER_FREQ, MAX_SOUNDS_COUNT);
     tsgl_sound_newLedcOutput(SPEAKER_PIN);
+
+    
+    tsgl_sound_load_pcmEx(music, SOUND_BUFFER_SIZE, 0, "/firmware/music.pcm", MUSIC_SAMPLERATE, 1, 1, PCM_FORMAT, USE_SOUND_DOUBLE_BUFFER)
+    tsgl_sound_setLoop(music, true);
+    tsgl_sound_setOutputs(music, &sound_output, 1, false);
+    tsgl_sound_setVolume(music, 1);
+    tsgl_sound_play(music);
     
     while (true) {
-        vTaskDelay(100);
+
+        fade_setBacklight(255);
+        tsgl_delay(1000);
     }
 }

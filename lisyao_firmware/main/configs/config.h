@@ -3,5 +3,11 @@
 #define USE_HARDWARE_ROTATE false
 #define ROTATE 0
 
-#define SOUND_GLOBAL_TIMER_FREQ 16000
+#define SOUND_GLOBAL_TIMER_FREQ 8000
 #define MAX_SOUNDS_COUNT 1
+
+#define MUSIC_SAMPLERATE 8000
+
+#define PCM_FORMAT tsgl_sound_pcm_unsigned
+#define USE_SOUND_DOUBLE_BUFFER true
+#define SOUND_BUFFER_SIZE (4 * 1024)
