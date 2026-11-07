@@ -1,0 +1,47 @@
+# TSGL 0.9.0
+* extended graphics library for the ESP 32 family controller
+* this library is written entirely in "C"
+* designed exclusively for use with ESP-IDF
+* the esp-idf version i use is v5.4.4
+* also, this library has an APIs for working with other peripherals
+
+## supported platforms
+* esp32
+* esp32c3
+
+## supported displays
+* st7735
+* st7789
+* st7796
+* pcd8544 (nokia 84x48 display)
+
+## supported ST77XX colormodes
+* st7735 - st7735_rgb444 / st7735_rgb565 / st7735_rgb666
+* st7789 - st77XX_rgb444 / st77XX_rgb565 / st77XX_rgb666
+* st7796 - st77XX_rgb565 / st77XX_rgb888
+
+## supported audio formats
+* pcm
+* dfpwm
+* nbs
+
+## features
+* the ability to install custom drivers without having to change the library code
+* the ability to install drivers directly inside the project
+* the ability to use different color spaces such as high color and true color to choose from
+* the ability to change driver settings for specific display features, which allows you to use 1 driver for most displays (can configure: resolution, offsets, inversion, flipX, flipY, swapXY)
+* are red and blue mixed up? this is not a problem, just send the color encoded on the display not using the driver's color space, but its BGR/RGB counterpart. or set the swapRGB flag in the driver settings
+* support for the 444 color space, where 3 pixels are encoded in 2 bits (accessing such a framebuffer is slower, and working without framebuffer can cause graphical artifacts)
+
+## warnings
+* be sure to increase the stack size to at least 8192. for the main task, this is done with the "CONFIG_ESP_MAIN_TASK_STACK_SIZE" parameter in the sdkconfig
+
+## langueches supported
+* english (ascii)
+* russian (cp1251)
+
+## commands examples
+* convert audio (mono, 8 bit, 8000 sample rate): ffmpeg -i input.mp3 -acodec pcm_u8 -ac 1 -ar 8000 -f u8 output.pcm
+* convert audio fragment (mono, 8 bit, 4000 sample rate): ffmpeg -i input.mp3 -ss 00:10 -to 01:42 -acodec pcm_u8 -ac 1 -ar 4000 -f u8 output.pcm
+* convert audio to dfpwm: ffmpeg -i input.mp3 -ac 1 -ar 48000 -f dfpwm output.dpw
+* compress bmp: ffmpeg -i 24bits_or_32bits.bmp -pix_fmt pal8 8bit_compressed.bmp
