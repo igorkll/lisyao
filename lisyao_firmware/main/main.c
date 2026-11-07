@@ -66,10 +66,6 @@ void app_main() {
             tsgl_framebuffer_push_wtrans(&framebuffer, 0, 0, sprite);
             tsgl_sprite_free(sprite);
 
-            tsgl_sprite* sprite = tsgl_bmp_load("/firmware/overlay.bmp", colormode, 0, tsgl_color_raw(TRANSPARENT_COLOR, colormode));
-            tsgl_framebuffer_push(&framebuffer, 0, 0, sprite);
-            tsgl_sprite_free(sprite);
-
             tsgl_display_send(&display, &framebuffer);
 
             fade_setBacklight(255);

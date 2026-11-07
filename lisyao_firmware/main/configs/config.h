@@ -20,6 +20,6 @@
 #define VOLUME 0.2
 
 #define IMAGES_COUNT 10
-#define SHOW_TIME 3000
+#define SHOW_TIME 5000
 
 #define TRANSPARENT_COLOR tsgl_color_pack(254, 125, 33)
