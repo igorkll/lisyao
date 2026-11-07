@@ -17,7 +17,7 @@
 #define BACKLIGHT_CHANGE_STEP 2
 #define BACKLIGHT_CHANGE_PERIOD 10
 
-#define VOLUME 0.2
+#define VOLUME 0.5
 
 #define IMAGES_COUNT 10
 #define SHOW_TIME 5000
