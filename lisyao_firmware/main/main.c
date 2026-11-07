@@ -62,12 +62,12 @@ void app_main() {
             char path[MAX_PATH_LEN];
             TSGL_funcs_slnprintf(path, MAX_PATH_LEN, "/firmware/%i.bmp\n", i);
 
-            tsgl_sprite* sprite = tsgl_bmp_load(path);
+            tsgl_sprite* sprite = tsgl_bmp_load(path, colormode, 0, TSGL_INVALID_RAWCOLOR);
             tsgl_framebuffer_push_wtrans(&framebuffer, 0, 0, sprite);
             tsgl_sprite_free(sprite);
 
-            tsgl_sprite* sprite = tsgl_bmp_load("/firmware/overlay.bmp");
-            tsgl_framebuffer_push_wtrans(&framebuffer, 0, 0, sprite);
+            tsgl_sprite* sprite = tsgl_bmp_load("/firmware/overlay.bmp", colormode, 0, tsgl_color_raw(TRANSPARENT_COLOR, colormode));
+            tsgl_framebuffer_push(&framebuffer, 0, 0, sprite);
             tsgl_sprite_free(sprite);
 
             tsgl_display_send(&display, &framebuffer);
