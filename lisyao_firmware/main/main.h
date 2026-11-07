@@ -32,9 +32,7 @@
 #include <freertos/timers.h>
 
 #include "configs/display.h"
-#include "configs/consts.h"
 #include "configs/config.h"
-#include "configs/gamecfg.h"
 
 extern const char* TAG;
 
@@ -44,13 +42,3 @@ extern tsgl_framebuffer framebuffer;
 extern tsgl_pos width;
 extern tsgl_pos height;
 extern tsgl_colormode colormode;
-
-extern tsgl_rawcolor white;
-extern tsgl_rawcolor red;
-extern tsgl_rawcolor orange;
-extern tsgl_rawcolor green;
-extern tsgl_rawcolor yellow;
-extern tsgl_rawcolor blue;
-extern tsgl_rawcolor magenta;
-extern tsgl_rawcolor transparent;
-extern tsgl_rawcolor black;

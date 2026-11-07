@@ -1,9 +1,0 @@
-#define MAX_PATH_LEN 64
-#define MAX_ACTION_LEN 32
-#define MAX_ACTION_LONG_LEN 128
-
-#define KEYS_COUNT 4
-#define KEY_INDEX_LEFT 0
-#define KEY_INDEX_OKAY 1
-#define KEY_INDEX_CANCEL 2
-#define KEY_INDEX_RIGHT 3

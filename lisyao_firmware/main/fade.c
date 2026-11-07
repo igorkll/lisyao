@@ -1,0 +1,35 @@
+#include "fade.h"
+
+static int16_t currentBackgroundValue = 0;
+static uint8_t targetBackgroundValue = 0;
+static TimerHandle_t change_backlight_timer_handle = NULL;
+
+static void change_backlight_timer_callback(TimerHandle_t xTimer) {
+    if (targetBackgroundValue > currentBackgroundValue) {
+        currentBackgroundValue += BACKLIGHT_CHANGE_STEP;
+        if (currentBackgroundValue > targetBackgroundValue) currentBackgroundValue = targetBackgroundValue;
+    } else if (targetBackgroundValue < currentBackgroundValue) {
+        currentBackgroundValue -= BACKLIGHT_CHANGE_STEP;
+        if (currentBackgroundValue < targetBackgroundValue) currentBackgroundValue = targetBackgroundValue;
+    }
+    tsgl_display_setBacklight(&display, currentBackgroundValue);
+
+    if (currentBackgroundValue == targetBackgroundValue) {
+        xTimerStop(xTimer, 0);
+    }
+}
+
+void fade_init() {
+    change_backlight_timer_handle = xTimerCreate(
+        NULL,
+        pdMS_TO_TICKS(BACKLIGHT_CHANGE_PERIOD),
+        pdTRUE,
+        NULL, 
+        change_backlight_timer_callback
+    );
+}
+
+void fade_setBacklight(uint8_t value) {
+    targetBackgroundValue = value;
+    xTimerStart(change_backlight_timer_handle, 0);
+}
