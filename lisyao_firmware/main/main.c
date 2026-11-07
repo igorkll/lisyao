@@ -56,8 +56,12 @@ void app_main() {
     tsgl_sound_play(&music);
     
     while (true) {
+        for (size_t i = 0; i < IMAGES_COUNT; i++) {
 
-        // fade_setBacklight(255);
-        tsgl_delay(1000);
+
+            fade_setBacklight(255);
+            tsgl_delay(SHOW_TIME);
+            fade_setBacklightAndWait(0);
+        }
     }
 }

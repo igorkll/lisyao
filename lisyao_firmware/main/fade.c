@@ -33,3 +33,8 @@ void fade_setBacklight(uint8_t value) {
     targetBackgroundValue = value;
     xTimerStart(change_backlight_timer_handle, 0);
 }
+
+void fade_setBacklightAndWait(uint8_t value) {
+    fade_setBacklight(value);
+    while (currentBackgroundValue != targetBackgroundValue) tsgl_delay(50);
+}
