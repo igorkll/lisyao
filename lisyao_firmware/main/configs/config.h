@@ -1,3 +1,5 @@
+#define MAX_PATH_LEN 64
+
 #define SPEAKER_PIN 1
 
 #define USE_HARDWARE_ROTATE false
@@ -15,7 +17,7 @@
 #define BACKLIGHT_CHANGE_STEP 2
 #define BACKLIGHT_CHANGE_PERIOD 10
 
-#define VOLUME 0.4
+#define VOLUME 0.2
 
 #define IMAGES_COUNT 10
 #define SHOW_TIME 3000

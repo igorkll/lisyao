@@ -48,6 +48,8 @@ void app_main() {
     tsgl_sound_enableGlobalTimer(SOUND_GLOBAL_TIMER_FREQ, MAX_SOUNDS_COUNT);
     tsgl_sound_output* sound_output = tsgl_sound_newLedcOutput(SPEAKER_PIN);
 
+    tsgl_sound_force_enable_output = true;
+
     tsgl_sound music;
     tsgl_sound_load_pcmEx(&music, SOUND_BUFFER_SIZE, 0, "/firmware/music.pcm", MUSIC_SAMPLERATE, 1, 1, PCM_FORMAT, USE_SOUND_DOUBLE_BUFFER);
     tsgl_sound_setLoop(&music, true);
@@ -57,7 +59,18 @@ void app_main() {
     
     while (true) {
         for (size_t i = 0; i < IMAGES_COUNT; i++) {
+            char path[MAX_PATH_LEN];
+            TSGL_funcs_slnprintf(path, MAX_PATH_LEN, "/firmware/%i.bmp\n", i);
 
+            tsgl_sprite* sprite = tsgl_bmp_load(path);
+            tsgl_framebuffer_push_wtrans(&framebuffer, 0, 0, sprite);
+            tsgl_sprite_free(sprite);
+
+            tsgl_sprite* sprite = tsgl_bmp_load("/firmware/overlay.bmp");
+            tsgl_framebuffer_push_wtrans(&framebuffer, 0, 0, sprite);
+            tsgl_sprite_free(sprite);
+
+            tsgl_display_send(&display, &framebuffer);
 
             fade_setBacklight(255);
             tsgl_delay(SHOW_TIME);
