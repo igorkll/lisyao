@@ -5,7 +5,7 @@
 #define TITLE_HEIGHT 16
 #define TITLE_MARGIN 8
 
-const char* TAG = "otter_smartpet";
+const char* TAG = "lisyao";
 
 tsgl_display display;
 tsgl_framebuffer framebuffer;
