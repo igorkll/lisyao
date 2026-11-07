@@ -11,3 +11,8 @@
 #define PCM_FORMAT tsgl_sound_pcm_unsigned
 #define USE_SOUND_DOUBLE_BUFFER true
 #define SOUND_BUFFER_SIZE (4 * 1024)
+
+#define BACKLIGHT_CHANGE_STEP 2
+#define BACKLIGHT_CHANGE_PERIOD 10
+
+#define VOLUME 0.4
