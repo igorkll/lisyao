@@ -35,11 +35,12 @@ difference() {
     translate([label_offset, width / 2, thickness - label_depth])
         linear_extrude(label_depth + 0.01)
             rotate([0, 0, -90])
-                text(label_text,
-                     size = label_size,
-                     halign = "center",
-                     valign = "center",
-                     font = "Symbola");
+                offset(delta = 0.08, $fn = 12)
+                    text(label_text,
+                         size = label_size,
+                         halign = "center",
+                         valign = "center",
+                         font = "Symbola");
     
     translate([image_pos, width / 2, thickness - 0.9])
         rotate([0, 0, -90])
