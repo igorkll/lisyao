@@ -35,8 +35,8 @@ difference() {
     translate([wall, wall, -1])
         cube([height - wall - wall_up, width - (wall * 2), thickness + 2]);
     
-    translate([height - wall_up - 1, width - wall, 0])
-        cube([wall_up + 2, 10, 10]);
+    translate([height - wall_up - 1, width - wall - (port_width / 2) - port_offset_left, thickness - (port_height / 2) - port_offset_top])
+        cube([wall_up + 2, port_width, port_height]);
     
     for (p = screw_positions)
         translate([p[0], p[1], -0.5])
