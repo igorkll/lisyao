@@ -27,6 +27,15 @@ image_size_y = 40;
 
 sound_hole_diameter = 3;
 
+screw_d         = 2.4;   // отверстие под M2 (для самореза M2 -> 1.7)
+screw_inset     = 2.5;     // отступ от краёв
+screw_positions = [
+    [screw_inset,     screw_inset],
+    [screw_inset,     width - screw_inset],
+    [height - screw_inset, screw_inset],
+    [height - screw_inset, width - screw_inset],
+];
+
 // -----------------------------------------------
 
 difference() {
@@ -49,4 +58,8 @@ difference() {
     
     translate([label_offset, width / 2, -0.1])
         cylinder(h = (thickness - label_depth) + 0.11, d = sound_hole_diameter);
+    
+    for (p = screw_positions)
+        translate([p[0], p[1], -0.5])
+            cylinder(h = thickness + 1, d = screw_d, $fn = 32);
 }
