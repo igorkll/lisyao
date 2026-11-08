@@ -2,7 +2,7 @@ $fn = 128;
 
 use <Symbola_old/Symbola.ttf>;
 
-wall = 2;
+wall = 4;
 wall_up = 1.5;
 
 screenhole_width = 34.5;
