@@ -11,7 +11,7 @@ screen_board_len = 9;
 
 width = (screenhole_width + 0.5) + (wall * 2);
 height = (screenhole_height + screen_board_len) + wall + wall_up;
-thickness = wall;
+thickness = 2;
 
 screenhole_offset = -0.2 + wall_up;
 
@@ -39,7 +39,7 @@ difference() {
                      valign = "center",
                      font = "Symbola");
     
-    translate([image_pos, width / 2, wall - 0.9])
+    translate([image_pos, width / 2, thickness - 0.9])
             rotate([0, 0, -90])
                 resize([image_size_y, image_size_x, image_depth])
                     surface(file = "bodyimage.png", center = true, convexity = 5);

@@ -11,7 +11,7 @@ screen_board_len = 9;
 
 width = (screenhole_width + 0.5) + (wall * 2);
 height = (screenhole_height + screen_board_len) + wall + wall_up;
-thickness = wall;
+thickness = 2;
 
 screenhole_offset = -0.2 + wall_up;
 
