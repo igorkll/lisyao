@@ -19,7 +19,7 @@
 
 #define VOLUME 0.5
 
-#define IMAGES_COUNT 10
+#define IMAGES_COUNT 12
 #define SHOW_TIME 5000
 #define START_DELAY 1000
 
