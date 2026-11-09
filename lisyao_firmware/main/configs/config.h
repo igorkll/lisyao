@@ -21,6 +21,6 @@
 
 #define IMAGES_COUNT 10
 #define SHOW_TIME 5000
-#define START_DELAY 3000
+#define START_DELAY 1000
 
 #define TRANSPARENT_COLOR tsgl_color_pack(254, 125, 33)
