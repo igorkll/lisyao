@@ -6,8 +6,8 @@ wall = 1.25;
 wall_down = 4;
 wall_up = 3;
 
-margin = 0;
-margin_height = -0.5;
+margin = 0.25;
+margin_height = 0.3;
 
 screenhole_width = 34.5 - margin;
 screenhole_height = 44 - margin_height;

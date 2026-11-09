@@ -57,6 +57,7 @@ void app_main() {
     tsgl_sound_setVolume(&music, VOLUME);
     tsgl_sound_play(&music);
     
+    tsgl_delay(START_DELAY);
     while (true) {
         for (size_t i = 0; i < IMAGES_COUNT; i++) {
             char path[MAX_PATH_LEN];
